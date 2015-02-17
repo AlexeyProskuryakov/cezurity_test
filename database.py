@@ -9,7 +9,7 @@ __author__ = '4ikist'
 
 db_name = db_user = db_pass = 'test'
 min_node_count = 100
-max_node_count = 200
+max_node_count = 2000
 
 connection = None
 
@@ -196,10 +196,3 @@ def change_element_label(id, new_label):
     """ % (new_label, id)
     cursor = _create_connection().cursor()
     cursor.execute(sql)
-
-
-if __name__ == '__main__':
-    fill_data()
-    # get_children(None)
-    # get_elements_on_level(3)
-    # get_elements_by_label('foo')
