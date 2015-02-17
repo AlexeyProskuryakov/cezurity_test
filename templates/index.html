@@ -1,0 +1,43 @@
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script src="{{url_for('static',filename='tree.jquery.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='jqtree.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+<div class='forms'>
+    <span>Search:</span>
+
+    <label for="level">by level</label>
+    <input id='level' type='text' name='level' pattern="\d+"/>
+    <input type='button' value='Search by level' onclick="search_by_level()"/>
+
+    <label for='label'>by Name</label>
+    <input id='label' type="text" name='label'/>
+    <input type='button' value='Search by name' onclick="search_by_label()"/>
+
+</div>
+<div id="tree"></div>
+<div id='event_result'></div>
+
+<div class="hide" id="rmenu">
+    <input type='button' value="x" onclick="closeMenu()">
+    <ul>
+        <input type='hidden' id='id_accum'>
+        <li>
+            <label for="edit">New name of node "<span id='node_represenet'></span>"</label>
+            <input type='text' name='edit' id='edit_accum'/>
+            <input type='button' value='ok' onclick="edit_node()"/>
+        </li>
+
+        <li>
+            <input type='button' value='Delete node' onclick="delete_node()"/>
+        </li>
+
+    </ul>
+</div>
+<script src="{{url_for('static',filename='script.js')}}"></script>
+</body>
+</html>
