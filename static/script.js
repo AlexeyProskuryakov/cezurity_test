@@ -54,13 +54,12 @@ function add_result_to_tree(tree, result){
 		}
 		selected.push(root_node.id);
 	}
-	tree.tree('setState',{selected_node:selected});
 };
 
 function search_by_level(){
 	var level = $('#level').val();
 	$.ajax({
-		url:'/level',
+		url:'/by_level',
 		type:'POST',
 		data:{level:level}
 	}).done(function(data){
@@ -77,7 +76,7 @@ function search_by_label(){
 	var label = $('#label').val();
 	console.log('wil search:', label);
 	$.ajax({
-		url:'/label',
+		url:'/by_label',
 		type:'POST',
 		data:{label:label}
 	}).done(function(data){

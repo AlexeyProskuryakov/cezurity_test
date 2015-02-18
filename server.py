@@ -14,12 +14,6 @@ def main():
     return render_template('index.html')
 
 
-@app.route('/roots')
-def form_roots():
-    roots = db.get_children(None)
-    return jsonify(roots=roots)
-
-
 @app.route('/children', methods=['GET'])
 def get_children():
     try:
@@ -41,14 +35,14 @@ def manage_element():
     return jsonify(ok=True)
 
 
-@app.route('/label', methods=['POST'])
+@app.route('/by_label', methods=['POST'])
 def form_paths():
     label = request.form.get('label')
     result = db.get_elements_by_label(label)
     return jsonify(ok=True, result=result)
 
 
-@app.route('/level', methods=['POST'])
+@app.route('/by_level', methods=['POST'])
 def form_level():
     try:
         level = int(request.form.get('level'))
